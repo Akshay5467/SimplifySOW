@@ -1,0 +1,30 @@
+name: Run Cypress Tests
+
+on:
+  push:
+    branches:
+      - main   # or master, depending on your repo
+  pull_request:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18   # same version you use locally
+
+      - name: Install dependencies
+        run: npm ci          # installs from package-lock.json
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome    # or firefox / edge if needed
+          headed: false      # true if you want to run headed mode
+          record: false      # true only if using Cypress Dashboard
