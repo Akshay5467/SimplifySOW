@@ -14,5 +14,5 @@ describe('Control Panel Tests', () => {
 
   it('should show Control Panel after login', () => {
     controlpanelpage.verifyPageLoaded()
-  })
+  });
 })
