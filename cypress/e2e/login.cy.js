@@ -11,7 +11,7 @@ describe('Login Test', () => {
     // adjust assertion to your actual app behavior
     cy.url().should('include', '/dashboard')
   });
-})
+});
 
 
 
